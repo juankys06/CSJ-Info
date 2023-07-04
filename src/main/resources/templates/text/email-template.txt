@@ -1,0 +1,12 @@
+Su solicitud se ha recibido exitosamente con los siguientes datos,
+
+Nro de Solicitud: [(${numero})]
+Asunto de la Solicitud: [(${asunto})]
+Estatus: [(${status})]
+
+[# th:each="entry,iter : ${contenido}" th:if="${(contenido.size()+1)/2} > ${iter.index}"]
+  - [(${contenido[iter.index*2]})]: [(${contenido[iter.index*2+1]})]
+[/]
+
+Para seguir el estatus de tu solicitud puedes ingresar a nuestra seccion de consulta,
+https://csjinfo.ramajudicial.gov.co/consulta

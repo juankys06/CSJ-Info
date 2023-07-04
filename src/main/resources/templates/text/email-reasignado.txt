@@ -1,0 +1,4 @@
+Nro de Solicitud: [(${numero})]
+Asunto de la Solicitud: [(${asunto})]
+
+La solicitud con número de caso [(${numero})] asignada a usted, ha sido reasignada para [(${new_email})]

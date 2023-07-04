@@ -1,0 +1,5 @@
+Su solicitud ha sido remitida por competencia a [(${entidad})]
+Correo: [(${correo})]
+
+Nro de Solicitud: [(${numero})]
+Asunto: [(${asunto})]

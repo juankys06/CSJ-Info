@@ -1,0 +1,13 @@
+La solicitud ha sido respondida.
+
+Nro de Solicitud: [(${numero})]
+Asunto: [(${asunto})]
+
+Respuesta:
+
+[(${respuesta})]
+
+
+Por favor, responda la siguiente encuesta respecto a nuestro servicio:
+
+https://csjinfo.ramajudicial.gov.co/encuesta/[(${url})]

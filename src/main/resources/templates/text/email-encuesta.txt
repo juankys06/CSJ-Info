@@ -1,0 +1,6 @@
+Su solicitud se ha cerrado. Por favor, ingrese al siguiente link:
+
+https://csjinfo.ramajudicial.gov.co/encuesta/[(${url})]
+
+Nro de Solicitud: [(${numero})]
+Asunto de la Solicitud: [(${asunto})]

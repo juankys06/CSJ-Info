@@ -1,0 +1,12 @@
+Su solicitud se ha recibido exitosamente con los siguientes datos,
+
+Nro de Solicitud: [(${numero})]
+Asunto de la Solicitud: [(${asunto})]
+Estatus: [(${status})]
+
+Solicitud:
+
+[(${contenido})]
+
+Para seguir el estatus de tu solicitud puedes ingresar a nuestra seccion de consulta,
+http://csjinfo.ability.com.co/consulta

@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Spring boot eamil teplate with Thymeleaf</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- use the font -->
+    <style>
+        body {
+           font-family: Arial;
+        }
+        p{
+          display: inline-block;
+        }
+                #footer, #x_rama-footer {
+    color: #fff;
+    width: 100%;
+    background: #19325b url("../assets/bg-footer.png") no-repeat 0 0;
+    background-position: center;
+    overflow: auto;
+    padding-top: 20px;
+ background-size: 85%;
+}
+
+#footer .cont h4 {
+    color: #fff;
+}
+
+#footer_social_link {
+    margin-top: 20px;
+}
+
+#footerMenu, #footer-social-link, #rama-footer, #reporte-visitas {
+    margin-bottom: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+footer .container p, footer .container span, footer .container b {
+    color: #fff;
+}
+#footer_navigation{
+        width: 100%;
+}
+#footer_navigation li {
+    text-align: center;
+    padding: 0px 5% 0px 5%;
+
+}
+
+    #footer_navigation li + li {
+        border-left: 1px solid #3c91a5;
+    }
+
+#footer_navigation a, #footer_navigation span {
+    color: #65c0e7;
+}
+
+    #footer_navigation a:hover span, #footer_navigation a:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+
+/* ---------- Entidades ---------- */
+
+#logos_entidades {
+    margin-bottom: 20px;
+}
+
+#entidades .item-entidades {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-block;
+}
+
+#entidades .item-entidades img {
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+#entidades .item-entidades a:hover img {
+    opacity: 1;
+    transform: scale(1.2);
+    filter: grayscale(0%);
+    transition: transform 1s, opacity 1.5s, filter 1.5s;
+}
+
+#entidades .item-entidades a img {
+    max-height: 90px;
+    max-width: 90px;
+}
+/* ---------- Social Icons ---------- */
+#footer-social-link {
+    width: auto;
+    margin: 0 auto;
+    margin-left: 15px;
+    list-style-type: none;
+}
+
+    #footer-social-link a {
+        font-size: 2em;
+        color: #fff;
+    }
+
+        #footer-social-link a:hover {
+            text-decoration: none;
+        }
+
+#reporte-visita, #footer-social-link, #rama-footer {
+    margin-bottom: 20px;
+}
+
+    #footer-social-link li {
+        float: left;
+        margin-right: 15%;
+    }
+
+.block-visitas {
+    text-align: right;
+}
+
+.title-report {
+    color: #65c0e7;
+}
+
+#rama-footer p {
+    margin: 0 0 10px !important;
+}
+
+.col-xs-10 {
+    width: 100%;
+}
+    </style>
+</head>
+ <body>
+    <div class="header" style="box-sizing: border-box; text-align: center;"> 
+     		<a href="https://www.ramajudicial.gov.co/" >
+		        <img src="https://csjinfo.ramajudicial.gov.co/img/logo1.26572f5e.png" alt="https://www.ramajudicial.gov.co/" />
+		    </a>
+    </div>
+    <hr size="1px" color="gray" />
+    <div class="row registro">
+		<div class="col-md-4 col-md-offset-4" style="text-align: center; font-size: 15px;">
+			<br>
+			Su solicitud se ha cerrado. Por favor, ingrese al siguiente link: 
+			<br>
+			<a th:href="@{https://csjinfo.ramajudicial.gov.co/encuesta/{id}?user={email}(id = ${url}, email = ${email})}">Responder encuesta aquí</a>
+			<br>
+			<br>
+			<b>Nro de Solicitud: </b><p th:text="${fecha}"></p>-<p th:text="${numero}"></p>
+			<br>
+			<div th:if="${asunto} != false">
+			<b>Asunto: </b><p th:text="${asunto}"></p>
+			<br>
+			</div>
+		</div>
+		<footer id="footer">
+
+        <div id="rama-footer" class="row" style="background: #19325b;">
+            <div class="col-lg-4 col-md-4 col-xs-12" style="text-align: center;">
+                <i class="fas fa-band-aid"></i>
+                <h3 style="text-align: center;"> <span style="color:#ffffff;">Rama Judicial </span></h3>
+                <p style="font-size:11px;"> <span style="color:#ffffff;">Calle 12 No. 7 - 65 Bogotá Colombia<br>Horario de Atención Lunes a Viernes<br> 8:00 a.m. a 1:00 p.m. - 2:00 p.m. a 5:00 p.m. </span></p>
+            </div>
+            
+        </div>
+        <div id="reporte-visitas" class="row"> </div>
+        <div id="accesibilityContent" class="aui-helper-hidden"> </div>
+    </footer>
+	</div>
+  </body>
+</html>

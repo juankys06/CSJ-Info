@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Spring boot eamil teplate with Thymeleaf</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- use the font -->
+    <style>
+      body {
+        font-family: Arial;
+      }
+      p {
+        display: inline-block;
+      }
+      #footer,
+      #x_rama-footer {
+        color: #fff;
+        width: 100%;
+        background: #19325b url("../assets/bg-footer.png") no-repeat 0 0;
+        background-position: center;
+        overflow: auto;
+        padding-top: 20px;
+        background-size: 85%;
+      }
+
+      #footer .cont h4 {
+        color: #fff;
+      }
+
+      #footer_social_link {
+        margin-top: 20px;
+      }
+
+      #footerMenu,
+      #footer-social-link,
+      #rama-footer,
+      #reporte-visitas {
+        margin-bottom: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+      }
+
+      footer .container p,
+      footer .container span,
+      footer .container b {
+        color: #fff;
+      }
+      #footer_navigation {
+        width: 100%;
+      }
+      #footer_navigation li {
+        text-align: center;
+        padding: 0px 5% 0px 5%;
+      }
+
+      #footer_navigation li + li {
+        border-left: 1px solid #3c91a5;
+      }
+
+      #footer_navigation a,
+      #footer_navigation span {
+        color: #65c0e7;
+      }
+
+      #footer_navigation a:hover span,
+      #footer_navigation a:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      /* ---------- Entidades ---------- */
+
+      #logos_entidades {
+        margin-bottom: 20px;
+      }
+
+      #entidades .item-entidades {
+        padding-left: 10px;
+        padding-right: 10px;
+        display: inline-block;
+      }
+
+      #entidades .item-entidades img {
+        opacity: 0.4;
+        filter: grayscale(100%);
+      }
+
+      #entidades .item-entidades a:hover img {
+        opacity: 1;
+        transform: scale(1.2);
+        filter: grayscale(0%);
+        transition: transform 1s, opacity 1.5s, filter 1.5s;
+      }
+
+      #entidades .item-entidades a img {
+        max-height: 90px;
+        max-width: 90px;
+      }
+      /* ---------- Social Icons ---------- */
+      #footer-social-link {
+        width: auto;
+        margin: 0 auto;
+        margin-left: 15px;
+        list-style-type: none;
+      }
+
+      #footer-social-link a {
+        font-size: 2em;
+        color: #fff;
+      }
+
+      #footer-social-link a:hover {
+        text-decoration: none;
+      }
+
+      #reporte-visita,
+      #footer-social-link,
+      #rama-footer {
+        margin-bottom: 20px;
+      }
+
+      #footer-social-link li {
+        float: left;
+        margin-right: 15%;
+      }
+
+      .block-visitas {
+        text-align: right;
+      }
+
+      .title-report {
+        color: #65c0e7;
+      }
+
+      #rama-footer p {
+        margin: 0 0 10px !important;
+      }
+
+      .col-xs-10 {
+        width: 100%;
+      }
+
+      table {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        table-layout: fixed;
+      }
+
+      table caption {
+        font-size: 1.5em;
+        margin: 0.5em 0 0.75em;
+      }
+
+      table tr {
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        padding: 0.35em;
+      }
+
+      table th,
+      table td {
+        padding: 0.625em;
+        text-align: center;
+      }
+
+      table th {
+        font-size: 0.85em;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      @media screen and (max-width: 600px) {
+        table {
+          border: 0;
+        }
+
+        table caption {
+          font-size: 1.3em;
+        }
+
+        table thead {
+          border: none;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px;
+        }
+
+        table tr {
+          border-bottom: 3px solid #ddd;
+          display: block;
+          margin-bottom: 0.625em;
+        }
+
+        table td {
+          border-bottom: 1px solid #ddd;
+          display: block;
+          font-size: 0.8em;
+          text-align: right;
+        }
+
+        table td::before {
+          /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+          content: attr(data-label);
+          float: left;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+
+        table td:last-child {
+          border-bottom: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header" style="box-sizing: border-box; text-align: center">
+      <a href="https://www.ramajudicial.gov.co/">
+        <img
+          src="https://csjinfo.ramajudicial.gov.co/img/logo1.26572f5e.png"
+          alt="https://www.ramajudicial.gov.co/"
+        />
+      </a>
+    </div>
+    <hr size="1px" color="gray" />
+    <div class="row registro">
+      <div
+        class="col-md-4 col-md-offset-4"
+        style="text-align: center; font-size: 15px"
+      >
+        <br />
+        <b>Su solicitud ha sido remitida por competencia a: </b><br />
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Dependencia</th>
+              <th scope="col">Correo(s)</th>
+              <th scope="col">Teléfono(s)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="entidad: ${dependencias}">
+              <td th:text="${entidad.entidad.nombre}"></td>
+              <td th:text="${entidad.correo_asignacion}"></td>
+              <td th:text="${entidad.telefono_asignacion}"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Tabla prueba -->
+
+        <!-- <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Entidad</th>
+              <th scope="col">Correo(s)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="entidad: ${entidades}">
+              <td th:text="${entidad.entidad.nombre}">Entidad de prueba 1</td>
+              <td th:text="${entidad.correo_asignacion}">
+                kleiver615@gmail.com
+              </td>
+            </tr>
+            <tr th:each="entidad: ${entidades}">
+              <td th:text="${entidad.entidad.nombre}">Entidad de prueba 2</td>
+              <td th:text="${entidad.correo_asignacion}">jdas@gmail.com</td>
+            </tr>
+          </tbody>
+        </table> -->
+
+        <br />
+        <b>Nro de Solicitud: </b>
+        <p th:text="${fecha}"></p>
+        -
+        <p th:text="${numero}"></p>
+        <br />
+        <div th:if="${asunto} != false">
+          <b>Asunto: </b>
+          <p th:text="${asunto}"></p>
+          <br />
+        </div>
+        <br />
+        <b
+          >NOTA: Para próximas solicitudes de información relacionadas con las
+          entidades favor enviarlas directamente al correo o los correos
+          mencionados en la parte superior.</b
+        >
+        <br />
+        <br />
+      </div>
+      <footer id="footer">
+        <div id="rama-footer" class="row" style="background: #19325b">
+          <div class="col-lg-4 col-md-4 col-xs-12" style="text-align: center">
+            <i class="fas fa-band-aid"></i>
+            <h3 style="text-align: center">
+              <span style="color: #ffffff">Rama Judicial </span>
+            </h3>
+            <p style="font-size: 11px">
+              <span style="color: #ffffff"
+                >Calle 12 No. 7 - 65 Bogotá Colombia<br />Horario de Atención
+                Lunes a Viernes<br />
+                8:00 a.m. a 1:00 p.m. - 2:00 p.m. a 5:00 p.m.
+              </span>
+            </p>
+          </div>
+        </div>
+        <div id="reporte-visitas" class="row"></div>
+        <div id="accesibilityContent" class="aui-helper-hidden"></div>
+      </footer>
+    </div>
+  </body>
+</html>
